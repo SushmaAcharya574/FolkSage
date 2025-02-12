@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Knowledge Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-lg font-semibold">Local Knowledge</a>
+            <div>
+                <a href="#contribute" class="text-white px-4">Contribute</a>
+                <a href="#search" class="text-white px-4">Search</a>
+                <a href="#auth" class="text-white px-4">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-6">
+        <!-- Contribute Section -->
+        <section id="contribute" class="my-10">
+            <h2 class="text-2xl font-bold">Contribute Your Knowledge</h2>
+            <form class="mt-4">
+                <textarea id="contributeText" placeholder="Enter your local knowledge..." class="w-full p-3 border rounded"></textarea>
+                <div class="mt-4">
+                    <label for="fileUpload" class="block text-lg">Upload Image/Audio/Video</label>
+                    <input type="file" id="fileUpload" class="p-2 border rounded">
+                </div>
+                <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded">Submit</button>
+            </form>
+        </section>
+
+        <!-- Search Section -->
+        <section id="search" class="my-10">
+            <h2 class="text-2xl font-bold">Search Local Knowledge</h2>
+            <div class="mt-4">
+                <input id="searchInput" type="text" placeholder="Search by topic, region, or language" class="p-3 w-full border rounded">
+            </div>
+            <ul id="searchResults" class="mt-4">
+                <!-- Search results will appear here -->
+            </ul>
+        </section>
+
+        <!-- Authentication Section -->
+        <section id="auth" class="my-10">
+            <h2 class="text-2xl font-bold">Sign In</h2>
+            <form class="mt-4">
+                <input type="text" id="username" placeholder="Username" class="w-full p-3 border rounded mb-4">
+                <input type="password" id="password" placeholder="Password" class="w-full p-3 border rounded mb-4">
+                <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded">Sign In</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
