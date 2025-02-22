@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Knowledge Platform</title>
+    <script defer src="./js/auth.js" type="module"></script>
+    <script defer src="./js/posts.js" type="module"></script>
+    <script defer src="./js/upload.js" type="module"></script>
+</head>
+
+<body>
+    <h1>Welcome to Local Knowledge Platform</h1>
+
+    <!-- Sign Up -->
+    <input type="email" id="signup-email" placeholder="Enter email">
+    <input type="password" id="signup-password" placeholder="Enter password">
+    <button onclick="signUp()">Sign Up</button>
+
+    <!-- Login -->
+    <input type="email" id="login-email" placeholder="Enter email">
+    <input type="password" id="login-password" placeholder="Enter password">
+    <button onclick="signIn()">Login</button>
+
+    <!-- Logout -->
+    <button onclick="signOut()">Logout</button>
+
+    <!-- Display Knowledge Posts -->
+    <div id="posts"></div>
+
+    <script type="module">
+        import { signUp, signIn, signOut } from "./js/auth.js"; import { getPosts } from "./js/posts.js"; async function loadPosts() { let posts = await getPosts(); let postContainer = document.getElementById("posts"); postContainer.innerHTML = ""; posts.forEach(post=>
+        { postContainer.innerHTML += `
+        <div>
+            <h2>${post.title}</h2>
+            <p>${post.content}</p>
+        </div>`; }); } window.signUp = async () => { let email = document.getElementById("signup-email").value; let password = document.getElementById("signup-password").value; await signUp(email, password); }; window.signIn = async () => { let email = document.getElementById("login-email").value;
+        let password = document.getElementById("login-password").value; await signIn(email, password); loadPosts(); }; window.signOut = async () => { await signOut(); }; loadPosts();
+    </script>
+</body>
+
+</html>
